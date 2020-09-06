@@ -1,0 +1,14 @@
+{% extends 'encyclopedia/editnew.html' %}
+
+{% block title %}Edit Page{% endblock %}
+
+{% block body %}
+<form action="{% url 'index' %}" method="post">
+    {% csrf_token %}
+    <input type="hidden" value="edit" name="edit">
+    Name: <input type="text" name="title" placeholder="Name" value="{{ title }}"><br><br>
+    Text: <br>
+    <textarea type="textarea" name="content" placeholder="Content" rows="34" cols="180">{{ content }}</textarea><br><br>
+    <input type="submit" value="Save">
+</form>
+{% endblock %}

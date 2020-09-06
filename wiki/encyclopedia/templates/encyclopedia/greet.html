@@ -1,0 +1,35 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            {{ title }}
+        </title>
+        <link href="{% static 'encyclopedia/styles.css' %}" rel="stylesheet">
+        <style>
+            a[href="{{ link }}"], a[href="{{ delete }}"] {
+                position: absolute;
+            }
+            a[href="{{ link }}"] {
+                right: 10px;
+            }
+            a[href="{{ delete }}"] {
+                right: 10px;
+            }
+        </style>
+        <script>
+            //text-align: right;
+            //
+            //bottom: 35px;
+            //bottom: 10px;
+        </script>
+    </head>
+    <body>
+        {% block element %}
+        {% endblock %}
+
+        <a href="{{ link }}">Edit This Page</a><br>
+        <a href="{{ delete }}">Delete This Page</a>
+    </body>
+</html>

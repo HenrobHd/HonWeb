@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Delete Page</title>
+        <style>
+            body {
+                text-align: center;
+                font-family: sans-serif;
+                font-weight: bold;
+                font-size: 50px;
+                margin: 75px;
+            }
+            button {
+                font-weight: bold;
+                font-size: 20px;
+                margin: 150px 100px;
+                padding: 10px 50px;
+                border: black solid 2px;
+            }
+            button:hover {
+                border: blue solid 2px;
+            }
+            input {
+                display: none;
+            }
+        </style>
+        <script>
+            function yes()
+            {
+                document.getElementById("submit").click();
+            }
+            function no()
+            {
+                document.getElementById("no").click();
+            }
+        </script>
+    </head>
+    <body>
+        Do you want to delete "{{ filename }}"?<br><br>
+        <button onclick="yes();">YES</button>
+        <button onclick="no();">NO</button>
+        <form action="" method="POST">
+            {% csrf_token %}
+            <input type="hidden" name="ask" value="{{ filename }}">
+            <input type="submit" id="submit">
+        </form>
+        <a href="/{{ filename }}" id="no"></a>
+    </body>
+</html>
